@@ -16,24 +16,24 @@ app.use(express.static("public"));
 
 app.get("/", function(req, res) {
   res.render("home", {
-    title: "Home",
-    content: homeStartingContent
+    pageTitle: "Home",
+    startingContent: homeStartingContent
   });
 })
 
+app.get("/about", function(req, res) {
+  res.render("home", {
+    pageTitle: "About",
+    startingContent: aboutContent
+  });
+})
 
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
-
-
-
-
-
-
-
-
-
+app.get("/contact", function(req, res) {
+  res.render("home", {
+    pageTitle: "Contact",
+    startingContent: contactContent
+  });
+})
 
 
 
