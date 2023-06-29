@@ -41,17 +41,31 @@ app.get("/compose", function(req, res) {
   res.render("Compose");
 })
 
+app.get("/posts/:contentTitle", function(req, res) {
+  let searchTitle = req.params.contentTitle;
+  
+  posts.forEach(function(p) {
+    let storedTitle = p.postTitle;
+
+    if(storedTitle === searchTitle) {
+      res.render("post", {
+        pageTitle : p.postTitle, 
+        startingContent : p.postBody
+      });
+    }
+  })  
+})
+
+
 app.post("/compose", function(req, res) {
   let post = {
     postTitle : req.body.postTitle,
     postBody : req.body.postBody
   }
-
+  
   posts.push(post);
   res.redirect("/");
-
 })
-
 
 
 app.listen(3000, function() {
