@@ -3,16 +3,16 @@
 <p><%= startingContent %></p>
 
 <% contentPosts.forEach(function (p) { %>
-    <h1> <%= p.postTitle %> </h1>
-    <% if (p.postBody.length <= 100) {%>
+    <h1> <%= p.title %> </h1>
+    <% if (p.content.length <= 100) {%>
         <p>
-            <%= p.postBody %> 
-            <a href="/posts/<%=p.postTitle%>">See details</a>
+            <%= p.content %> 
+            <a href="/posts/<%=p.title%>">See details</a>
        </p>
     <% } else {%>
         <p>
              <%= p.postBody.substring(0, 100) + "..." %> 
-             <a href="/posts/<%=p.postTitle%>">See details</a>
+             <a href="/posts/<%=p.title%>">See details</a>
         </p>
     <% } %>
 <% })  %>
