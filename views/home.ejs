@@ -7,12 +7,12 @@
     <% if (p.content.length <= 100) {%>
         <p>
             <%= p.content %> 
-            <a href="/posts/<%=p.title%>">See details</a>
+            <a href="/posts/<%=p.title%>" name="detail" value="<%=p.id%>">See details</a>
        </p>
     <% } else {%>
         <p>
-             <%= p.postBody.substring(0, 100) + "..." %> 
-             <a href="/posts/<%=p.title%>">See details</a>
+             <%= p.title.substring(0, 100) + "..." %> 
+             <a href="/posts/<%=p.id%>">See details</a>
         </p>
     <% } %>
 <% })  %>
